@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Kids Club - Unlock Your Child’s Superpower</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for premium icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Load Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --primary-blue: #2B6CF6;
+            --secondary-yellow: #FFDD2B;
+            --purple-start: #6C4BF4;
+            --purple-end: #A96DF8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Soft grey background */
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Styles for BrightChamps Aesthetic --- */
+
+        /* Glowing Button Effect (Neon Yellow CTA) */
+        .neon-cta {
+            background-color: var(--secondary-yellow);
+            color: #1a1a1a;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 221, 43, 0.7);
+        }
+        .neon-cta:hover {
+            box-shadow: 0 0 30px rgba(255, 221, 43, 1), 0 0 5px rgba(255, 221, 43, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Background and Floating Elements */
+        .hero-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(43, 108, 246, 0.2) 0%, rgba(108, 75, 244, 0.1) 50%, rgba(169, 109, 248, 0.05) 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, 30px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(50px);
+            animation: float 10s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .cube {
+            top: 10%; left: 5%; background: cyan; animation-delay: 1s;
+        }
+        .sphere {
+            bottom: 5%; right: 10%; background: pink; animation-delay: 3s;
+        }
+        .tetra {
+            top: 40%; right: 5%; background: var(--purple-end); animation-delay: 5s;
+        }
+
+        /* Course Card Gradient Backgrounds */
+        .level-1-bg { background: linear-gradient(135deg, #1d976c 0%, #93f9b9 100%); } /* Green/Cyan */
+        .level-2-bg { background: linear-gradient(135deg, #FFDD2B 0%, #FF9900 100%); } /* Yellow/Orange */
+        .level-3-bg { background: linear-gradient(135deg, #2B6CF6 0%, #6C4BF4 100%); } /* Blue/Purple */
+        .level-4-bg { background: linear-gradient(135deg, #F06EAA 0%, #FF8A00 100%); } /* Pink/Red/Orange */
+
+        /* Animation for scroll entry */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" target="_blank" class="fixed bottom-6 right-6 z-50 p-4 bg-green-500 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 transform hover:scale-105">
+        <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </a>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Digital Kids Club
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#courses" class="hover:text-blue-600 transition">Courses</a>
+                <a href="#whyus" class="hover:text-blue-600 transition">Why Us</a>
+                <a href="#success" class="hover:text-blue-600 transition">Success</a>
+                <a href="#pricing" class="hover:text-blue-600 transition">Pricing</a>
+            </nav>
+            <a href="#trial" class="hidden md:block px-6 py-2 rounded-full font-bold text-sm transition text-white bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl">
+                Book Trial
+            </a>
+            <!-- Mobile Menu Icon (Placeholder for functionality) -->
+            <button class="md:hidden text-2xl text-blue-600">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1️⃣ HERO SECTION (Very Bold & Premium) -->
+        <section class="hero-bg relative pt-16 pb-24 lg:pt-24 lg:pb-36 overflow-hidden">
+            <!-- Floating Glow Elements -->
+            <div class="floating-element cube"></div>
+            <div class="floating-element sphere"></div>
+            <div class="floating-element tetra"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="lg:flex lg:items-center">
+                    <!-- Text Content -->
+                    <div class="lg:w-1/2 animate-in" data-delay="0">
+                        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tighter text-gray-900 mb-6">
+                            Unlock Your Child’s Superpower With <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Coding, Robotics & AI</span>
+                        </h1>
+                        <p class="text-xl text-gray-600 mb-10 max-w-lg">
+                            Live interactive classes designed for ages 5–16, powered by world-class curriculum.
+                        </p>
+
+                        <!-- Buttons (BrightChamps Style) -->
+                        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                            <a href="#trial" class="neon-cta px-10 py-4 text-lg rounded-full shadow-2xl transition duration-300 hover:scale-[1.02]">
+                                Book FREE Trial Class
+                            </a>
+                            <a href="#courses" class="px-10 py-4 text-lg rounded-full font-bold transition duration-300 text-blue-600 border-2 border-blue-600 hover:bg-blue-50">
+                                View Courses
+                            </a>
+                        </div>
+
+                        <!-- Badges -->
+                        <div class="flex flex-wrap gap-4 mt-8">
+                            <div class="flex items-center space-x-2 bg-white/70 backdrop-blur-sm p-3 rounded-full shadow-lg border border-gray-100">
+                                <span class="text-yellow-500 text-lg"><i class="fas fa-star"></i></span>
+                                <span class="text-sm font-semibold text-gray-700">10,000+ Students globally</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white/70 backdrop-blur-sm p-3 rounded-full shadow-lg border border-gray-100">
+                                <span class="text-pink-500 text-lg"><i class="fas fa-smile-beam"></i></span>
+                                <span class="text-sm font-semibold text-gray-700">Fun & interactive teaching</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white/70 backdrop-blur-sm p-3 rounded-full shadow-lg border border-gray-100">
+                                <span class="text-cyan-500 text-lg"><i class="fas fa-globe"></i></span>
+                                <span class="text-sm font-semibold text-gray-700">International-standard curriculum</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Illustration -->
+                    <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center animate-in" data-delay="100">
+                        <!-- Placeholder for kid + laptop + glowing robot illustration -->
+                        <img src="https://placehold.co/550x450/2B6CF6/ffffff?text=Kid+%26+Robot+Illustration" 
+                             alt="Child learning coding and robotics" 
+                             class="w-full max-w-md lg:max-w-lg rounded-3xl shadow-2xl transform hover:scale-[1.01] transition duration-500"
+                             style="box-shadow: 0 20px 60px rgba(43, 108, 246, 0.4);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2️⃣ WHY DIGITAL KIDS CLUB (Vibrant Horizontal Cards) -->
+        <section id="whyus" class="py-20 lg:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-16 animate-in" data-delay="0">
+                    Why Choose Digital Kids Club?
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <!-- Card 1: Project-Based Learning -->
+                    <div class="p-8 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border border-blue-100 animate-in" data-delay="100">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-400 text-white text-3xl mb-4">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Project-Based Learning</h3>
+                        <p class="text-gray-600">Build real-world apps, games, and robots from day one, turning concepts into creations.</p>
+                    </div>
+
+                    <!-- Card 2: Future-Ready Skills -->
+                    <div class="p-8 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border border-pink-100 animate-in" data-delay="200">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-pink-500 to-purple-400 text-white text-3xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Future-Ready Skills</h3>
+                        <p class="text-gray-600">Master AI, robotics, and complex problem-solving skills essential for the 21st-century job market.</p>
+                    </div>
+
+                    <!-- Card 3: Safe, Friendly & Fun -->
+                    <div class="p-8 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border border-yellow-100 animate-in" data-delay="300">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-yellow-500 to-orange-400 text-white text-3xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Safe, Friendly & Fun</h3>
+                        <p class="text-gray-600">A positive, collaborative, and secure online environment where kids love to learn and explore.</p>
+                    </div>
+
+                    <!-- Card 4: Expert Child-Friendly Teachers -->
+                    <div class="p-8 bg-white rounded-3xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:-translate-y-1 border border-green-100 animate-in" data-delay="400">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-green-500 to-lime-400 text-white text-3xl mb-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Expert Child-Friendly Teachers</h3>
+                        <p class="text-gray-600">Our certified educators are trained to inspire young minds with patience and passion.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3️⃣ COURSE LEVELS (BrightChamps Tiered Structure) -->
+        <section id="courses" class="py-20 lg:py-28 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-6 animate-in" data-delay="0">
+                    Structured Learning Path
+                </h2>
+                <p class="text-xl text-center text-gray-600 mb-16 animate-in" data-delay="100">
+                    A curriculum designed for every stage of your child's growth.
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Level 1: Juniors -->
+                    <div class="p-6 rounded-3xl shadow-2xl transform hover:scale-[1.02] transition duration-500 level-1-bg text-white animate-in" data-delay="200">
+                        <div class="text-5xl mb-4"><i class="fas fa-puzzle-piece"></i></div>
+                        <h3 class="text-sm font-bold opacity-80 mb-1">LEVEL 1</h3>
+                        <h4 class="text-3xl font-extrabold mb-4">Juniors <span class="text-xl opacity-90">(Ages 5–7)</span></h4>
+                        <ul class="space-y-3 text-sm font-medium list-none pl-0">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>ScratchJr</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Logic stories</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Fun coding puzzles</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Hands-on mini STEM</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Level 2: Creators -->
+                    <div class="p-6 rounded-3xl shadow-2xl transform hover:scale-[1.02] transition duration-500 level-2-bg text-gray-900 animate-in" data-delay="300">
+                         <div class="text-5xl mb-4"><i class="fas fa-pencil-ruler"></i></div>
+                        <h3 class="text-sm font-bold opacity-80 mb-1">LEVEL 2</h3>
+                        <h4 class="text-3xl font-extrabold mb-4">Creators <span class="text-xl opacity-90">(Ages 8–10)</span></h4>
+                        <ul class="space-y-3 text-sm font-medium list-none pl-0">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-gray-700/80 mr-2"></i>Scratch animations</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-gray-700/80 mr-2"></i>Game design</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-gray-700/80 mr-2"></i>Jr. Robotics</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-gray-700/80 mr-2"></i>MIT App Inventor basics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Level 3: Builders -->
+                    <div class="p-6 rounded-3xl shadow-2xl transform hover:scale-[1.02] transition duration-500 level-3-bg text-white animate-in" data-delay="400">
+                        <div class="text-5xl mb-4"><i class="fas fa-tools"></i></div>
+                        <h3 class="text-sm font-bold opacity-80 mb-1">LEVEL 3</h3>
+                        <h4 class="text-3xl font-extrabold mb-4">Builders <span class="text-xl opacity-90">(Ages 11–13)</span></h4>
+                        <ul class="space-y-3 text-sm font-medium list-none pl-0">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Python basics</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Web design</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Electronics + Arduino</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>AI for kids</li>
+                        </ul>
+                    </div>
+
+                    <!-- Level 4: Teens -->
+                    <div class="p-6 rounded-3xl shadow-2xl transform hover:scale-[1.02] transition duration-500 level-4-bg text-white animate-in" data-delay="500">
+                        <div class="text-5xl mb-4"><i class="fas fa-brain"></i></div>
+                        <h3 class="text-sm font-bold opacity-80 mb-1">LEVEL 4</h3>
+                        <h4 class="text-3xl font-extrabold mb-4">Teens <span class="text-xl opacity-90">(Ages 14–16)</span></h4>
+                        <ul class="space-y-3 text-sm font-medium list-none pl-0">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Python advanced</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Machine learning</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>App development</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Web Dev (HTML/CSS/JS)</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-white/80 mr-2"></i>Ethical tech + cyber safety</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4️⃣ HOW IT WORKS (BrightChamps Style Timeline) -->
+        <section class="py-20 lg:py-28 bg-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-16 animate-in" data-delay="0">
+                    The Fast Track to Tech Mastery
+                </h2>
+                
+                <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center">
+                    
+                    <!-- Line Connector (Hidden on Mobile) -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 transform -translate-y-1/2"></div>
+                    <div class="hidden md:block absolute top-1/2 left-[calc(33.33%-4px)] w-[33.33%] h-1 bg-gradient-to-r from-blue-500 to-purple-500 transform -translate-y-1/2"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="w-full md:w-1/3 p-4 relative z-10 text-center animate-in" data-delay="100">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-3xl mb-4 shadow-xl border-4 border-white">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">1. Book Free Trial</h3>
+                        <p class="text-gray-600">Schedule your complimentary, 1:1 interactive class with an expert instructor.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="w-full md:w-1/3 p-4 relative z-10 text-center animate-in" data-delay="200">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-3xl mb-4 shadow-xl border-4 border-white">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">2. Join Live Interactive Class</h3>
+                        <p class="text-gray-600">Experience our engaging curriculum and see your child's potential firsthand.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="w-full md:w-1/3 p-4 relative z-10 text-center animate-in" data-delay="300">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 text-3xl mb-4 shadow-xl border-4 border-white">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">3. Choose a Plan & Start Learning</h3>
+                        <p class="text-gray-600">Select the perfect course level and package, and begin their journey to tech stardom.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5️⃣ STUDENT SUCCESS STORIES (Testimonials) -->
+        <section id="success" class="py-20 lg:py-28 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-16 animate-in" data-delay="0">
+                    Our Future Innovators
+                </h2>
+
+                <!-- Placeholder for Slider (Showing 3 cards instead of a functional slider for single-file mandate) -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-2xl border-t-4 border-blue-500 animate-in" data-delay="100">
+                        <div class="flex items-start mb-6">
+                            <img src="https://placehold.co/60x60/2B6CF6/ffffff?text=K" alt="Student Profile" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-lg">Kira's Game Studio</h4>
+                                <p class="text-sm text-gray-500">Age 9, Created a 3D Maze Game</p>
+                            </div>
+                        </div>
+                        <div class="relative p-4 bg-blue-50 text-gray-700 rounded-xl">
+                            <p class="italic">"The classes turned my daughter's tablet time into learning time. She's now building her own games and constantly asking for new coding challenges!"</p>
+                            <span class="absolute -top-3 left-4 text-3xl text-blue-500">❝</span>
+                        </div>
+                        <p class="mt-4 text-sm font-semibold text-blue-600">— Sarah P. (Kira's Parent)</p>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-2xl border-t-4 border-purple-500 animate-in" data-delay="200">
+                        <div class="flex items-start mb-6">
+                            <img src="https://placehold.co/60x60/6C4BF4/ffffff?text=A" alt="Student Profile" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-lg">Alex's AI Assistant</h4>
+                                <p class="text-sm text-gray-500">Age 14, Built a Python chatbot</p>
+                            </div>
+                        </div>
+                        <div class="relative p-4 bg-purple-50 text-gray-700 rounded-xl">
+                            <p class="italic">"The AI module was amazing. Alex grasped complex concepts like machine learning much faster than I expected. Great curriculum structure!"</p>
+                            <span class="absolute -top-3 left-4 text-3xl text-purple-500">❝</span>
+                        </div>
+                        <p class="mt-4 text-sm font-semibold text-purple-600">— Mark D. (Alex's Parent)</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-2xl border-t-4 border-yellow-500 animate-in" data-delay="300">
+                        <div class="flex items-start mb-6">
+                            <img src="https://placehold.co/60x60/FFDD2B/000000?text=Z" alt="Student Profile" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-lg">Zara's Robot Car</h4>
+                                <p class="text-sm text-gray-500">Age 11, Coded an Arduino Robot</p>
+                            </div>
+                        </div>
+                        <div class="relative p-4 bg-yellow-50 text-gray-700 rounded-xl">
+                            <p class="italic">"The hands-on robotics class was perfect. Zara's confidence has soared since she successfully built and programmed her first small robot. Highly recommended!"</p>
+                            <span class="absolute -top-3 left-4 text-3xl text-yellow-500">❝</span>
+                        </div>
+                        <p class="mt-4 text-sm font-semibold text-yellow-600">— David L. (Zara's Parent)</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 6️⃣ PRICING (Rounded Neon Cards) -->
+        <section id="pricing" class="py-20 lg:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-6 animate-in" data-delay="0">
+                    Simple, Transparent Pricing
+                </h2>
+                <p class="text-xl text-center text-gray-600 mb-16 animate-in" data-delay="100">
+                    Packages designed for every commitment level. Start with a risk-free trial.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- Pricing Card 1: Starter -->
+                    <div class="p-8 bg-white rounded-3xl shadow-xl border-2 border-gray-100 transform hover:scale-[1.03] transition duration-500 animate-in" data-delay="200">
+                        <p class="text-sm font-semibold text-gray-500 uppercase mb-2">Starter</p>
+                        <h3 class="text-4xl font-extrabold text-blue-600 mb-6">8 Classes</h3>
+                        
+                        <p class="text-gray-600 mb-6">The perfect way to begin exploring a new tech topic. Ideal for beginners.</p>
+                        
+                        <ul class="space-y-3 text-sm font-medium mb-10">
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Dedicated 1:1 Instructor</li>
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Flexible scheduling</li>
+                            <li class="flex items-center text-gray-500 opacity-70"><i class="fas fa-minus-circle text-gray-400 mr-2"></i>Advanced Robotics Projects</li>
+                        </ul>
+
+                        <a href="#trial" class="block text-center px-6 py-3 rounded-full font-bold text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
+                            Enroll Now
+                        </a>
+                    </div>
+
+                    <!-- Pricing Card 2: Premium (Most Popular) -->
+                    <div class="relative p-10 bg-white rounded-3xl shadow-2xl border-4 border-yellow-400 transform scale-[1.05] hover:scale-[1.07] transition duration-500 animate-in" data-delay="300" 
+                         style="box-shadow: 0 0 30px rgba(255, 221, 43, 0.4);">
+                        
+                        <!-- Most Popular Tag -->
+                        <div class="absolute -top-4 right-0 bg-yellow-400 text-gray-900 text-xs font-extrabold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                            Most Popular
+                        </div>
+
+                        <p class="text-sm font-semibold text-gray-500 uppercase mb-2">Premium</p>
+                        <h3 class="text-5xl font-extrabold text-purple-600 mb-6">12 Classes</h3>
+                        
+                        <p class="text-gray-600 mb-6">Recommended for mastering fundamentals and building a robust project portfolio.</p>
+                        
+                        <ul class="space-y-3 text-sm font-medium mb-10">
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Dedicated 1:1 Instructor</li>
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Flexible scheduling</li>
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Advanced Robotics Projects</li>
+                        </ul>
+
+                        <a href="#trial" class="neon-cta block text-center px-6 py-3 rounded-full font-bold text-lg transition duration-300">
+                            Get Premium Plan
+                        </a>
+                    </div>
+
+                    <!-- Pricing Card 3: Pro -->
+                    <div class="p-8 bg-white rounded-3xl shadow-xl border-2 border-gray-100 transform hover:scale-[1.03] transition duration-500 animate-in" data-delay="400">
+                        <p class="text-sm font-semibold text-gray-500 uppercase mb-2">Pro</p>
+                        <h3 class="text-4xl font-extrabold text-cyan-600 mb-6">20 Classes</h3>
+                        
+                        <p class="text-gray-600 mb-6">The complete learning journey with deep dives and bonus specialisation projects.</p>
+                        
+                        <ul class="space-y-3 text-sm font-medium mb-10">
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Dedicated 1:1 Instructor</li>
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Flexible scheduling</li>
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Advanced Robotics Projects</li>
+                            <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i><span class="font-bold">Bonus projects included</span></li>
+                        </ul>
+
+                        <a href="#trial" class="block text-center px-6 py-3 rounded-full font-bold text-white bg-cyan-600 hover:bg-cyan-700 transition duration-300">
+                            Go Pro
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7️⃣ FREE TRIAL SECTION (Bright, Gradient Background) -->
+        <section id="trial" class="py-20 lg:py-32 overflow-hidden" 
+                 style="background: linear-gradient(135deg, #2B6CF6 0%, #6C4BF4 50%, #A96DF8 100%);">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+                <!-- Sparkle/Confetti Effect (Placeholder visual using text) -->
+                <div class="text-4xl absolute -top-10 left-1/4 text-yellow-300 transform rotate-12">🌟</div>
+                <div class="text-3xl absolute bottom-10 right-1/4 text-pink-300 transform -rotate-12">✨</div>
+
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 animate-in" data-delay="0">
+                    Give your child the future they deserve — <br>Book a FREE class now!
+                </h2>
+                <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto animate-in" data-delay="100">
+                    No credit card required. See the magic happen in a personalized 1:1 session.
+                </p>
+                <a href="#" class="neon-cta inline-block px-12 py-5 text-xl rounded-full shadow-2xl transition duration-500 animate-in" data-delay="200">
+                    Book FREE Class (Limited Slots!)
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8️⃣ FOOTER -->
+    <footer class="bg-gray-900 text-white pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-10 border-b border-gray-700 pb-10">
+                
+                <!-- Logo & Contact -->
+                <div class="col-span-2 md:col-span-2">
+                    <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+                        Digital Kids Club
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">Empowering the next generation of global innovators through tech education.</p>
+                    <p class="text-sm text-gray-300">Email: hello@digitalkids.club</p>
+                    <p class="text-sm text-gray-300">Phone: +1 (555) 123-4567</p>
+                </div>
+
+                <!-- Quick Links 1 -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-blue-300">Courses</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#courses" class="hover:text-white transition">Juniors (5-7)</a></li>
+                        <li><a href="#courses" class="hover:text-white transition">Creators (8-10)</a></li>
+                        <li><a href="#courses" class="hover:text-white transition">Builders (11-13)</a></li>
+                        <li><a href="#courses" class="hover:text-white transition">Teens (14-16)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links 2 -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-purple-300">Company</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#whyus" class="hover:text-white transition">Why DKC?</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h5 class="text-lg font-semibold mb-4 text-yellow-300">Connect</h5>
+                    <div class="flex space-x-4 text-2xl">
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-500 transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center text-sm text-gray-500">
+                &copy; 2025 Digital Kids Club. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for scroll animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate-in');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.getAttribute('data-delay') || '0', 10);
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                            entry.target.classList.remove('animate-in');
+                            observer.unobserve(entry.target);
+                        }, delay);
+                    }
+                });
+            }, observerOptions);
+
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
